@@ -21,6 +21,10 @@ public:
     LoginPage(QWidget *parent = nullptr);
     ~LoginPage();
     QSqlDatabase getDb();
+
+    QSqlDatabase connectionDataBase();
+    //void requestLogin(QSqlDatabase);
+
 private slots:
     void on_loginButton_clicked();
 
@@ -30,5 +34,6 @@ private:
     QSqlDatabase db;
     QSqlQuery * query;
     QMessageBox * msg;
+
 };
 #endif // LOGINPAGE_H

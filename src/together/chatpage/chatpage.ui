@@ -24,8 +24,8 @@ color: #FFFFFF;</string>
   <widget class="QWidget" name="centralwidget" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
+     <x>390</x>
+     <y>230</y>
      <width>821</width>
      <height>441</height>
     </rect>
@@ -46,6 +46,9 @@ color: #FFFFFF;</string>
      <string/>
     </property>
     <widget class="QPushButton" name="addFriendQPushButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -61,8 +64,8 @@ color: #FFFFFF;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/addFriend.svg</normaloff>../rcs/images/chatpage/addFriend.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/addFriend.svg</normaloff>:/ChatPage/images/chatpage/addFriend.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="chatQPushButton">
@@ -81,8 +84,8 @@ color: #FFFFFF;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/completChatBule.svg</normaloff>../rcs/images/chatpage/completChatBule.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/completChatBule.svg</normaloff>:/ChatPage/images/chatpage/completChatBule.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="settingQPushButton">
@@ -101,8 +104,8 @@ color: #FFFFFF;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/settingWile.svg</normaloff>../rcs/images/chatpage/settingWile.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/settingWile.svg</normaloff>:/ChatPage/images/chatpage/settingWile.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="personQpushButton">
@@ -121,8 +124,8 @@ color: #FFFFFF;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/my.svg</normaloff>../rcs/images/chatpage/my.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/my.svg</normaloff>:/ChatPage/images/chatpage/my.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="bellQpushButton">
@@ -141,8 +144,8 @@ color: #FFFFFF;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/bell.svg</normaloff>../rcs/images/chatpage/bell.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/bell.svg</normaloff>:/ChatPage/images/chatpage/bell.svg</iconset>
      </property>
     </widget>
    </widget>
@@ -213,8 +216,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/send.svg</normaloff>../rcs/images/chatpage/send.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/send.svg</normaloff>:/ChatPage/images/chatpage/send.svg</iconset>
      </property>
      <property name="shortcut">
       <string>Return</string>
@@ -242,8 +245,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/smile.svg</normaloff>../rcs/images/chatpage/smile.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/smile.svg</normaloff>:/ChatPage/images/chatpage/smile.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="addFileQpushButton">
@@ -262,8 +265,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/addFile.svg</normaloff>../rcs/images/chatpage/addFile.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/addFile.svg</normaloff>:/ChatPage/images/chatpage/addFile.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="vocalMessageQpushButton">
@@ -282,8 +285,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/vocalMessage.svg</normaloff>../rcs/images/chatpage/vocalMessage.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/vocalMessage.svg</normaloff>:/ChatPage/images/chatpage/vocalMessage.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="verticalSeparatorQpushButton">
@@ -369,6 +372,29 @@ border-radius: 6px;</string>
       </property>
      </widget>
     </widget>
+    <widget class="QListWidget" name="friendsListWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>151</width>
+       <height>251</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>50</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Friend</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="receiveMessageGroupBox">
     <property name="geometry">
@@ -415,7 +441,7 @@ border-radius: 6px;</string>
      <property name="geometry">
       <rect>
        <x>520</x>
-       <y>10</y>
+       <y>20</y>
        <width>21</width>
        <height>23</height>
       </rect>
@@ -427,15 +453,15 @@ border-radius: 6px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/settingDote.svg</normaloff>../rcs/images/chatpage/settingDote.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/settingDote.svg</normaloff>:/ChatPage/images/chatpage/settingDote.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="videoQPushButton">
      <property name="geometry">
       <rect>
        <x>460</x>
-       <y>10</y>
+       <y>20</y>
        <width>21</width>
        <height>23</height>
       </rect>
@@ -447,15 +473,15 @@ border-radius: 6px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/camera.svg</normaloff>../rcs/images/chatpage/camera.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/camera.svg</normaloff>:/ChatPage/images/chatpage/camera.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="callQPushButton">
      <property name="geometry">
       <rect>
        <x>490</x>
-       <y>10</y>
+       <y>20</y>
        <width>21</width>
        <height>23</height>
       </rect>
@@ -467,8 +493,8 @@ border-radius: 6px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/chatpage/phone.svg</normaloff>../rcs/images/chatpage/phone.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/ChatPage/images/chatpage/phone.svg</normaloff>:/ChatPage/images/chatpage/phone.svg</iconset>
      </property>
     </widget>
     <widget class="QLabel" name="recentMessagelabel">
@@ -488,7 +514,7 @@ border-radius: 6px;</string>
      <property name="geometry">
       <rect>
        <x>560</x>
-       <y>10</y>
+       <y>20</y>
        <width>56</width>
        <height>15</height>
       </rect>
@@ -502,10 +528,10 @@ border-radius: 6px;</string>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>380</x>
+     <y>210</y>
      <width>1920</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
@@ -522,8 +548,8 @@ border-radius: 6px;</string>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>1000</x>
-     <y>250</y>
+     <x>1380</x>
+     <y>460</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -533,6 +559,8 @@ border-radius: 6px;</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../rcs/qtrcs.qrc"/>
+ </resources>
  <connections/>
 </ui>

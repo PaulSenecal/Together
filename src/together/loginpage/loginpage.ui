@@ -3,7 +3,7 @@
  <class>LoginPage</class>
  <widget class="QMainWindow" name="LoginPage">
   <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
+   <enum>Qt::WindowModality::WindowModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -23,7 +23,7 @@
    <string>TogetherClient</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(&quot;back.svg&quot;);
+   <string notr="true">background-image: url(:/login/images/loginpage/back.svg);
 
 </string>
   </property>
@@ -31,8 +31,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>170</y>
+      <x>450</x>
+      <y>240</y>
       <width>621</width>
       <height>331</height>
      </rect>
@@ -100,13 +100,17 @@ color: #FFFFFF;</string>
      <property name="styleSheet">
       <string notr="true">background: #FFFFFF;
 border: 1px solid #BCBEC0;
-border-radius: 10px;</string>
+border-radius: 10px;
+color:black;</string>
      </property>
      <property name="text">
-      <string>lemurien</string>
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>255</number>
      </property>
      <property name="echoMode">
-      <enum>QLineEdit::Password</enum>
+      <enum>QLineEdit::EchoMode::Password</enum>
      </property>
      <property name="placeholderText">
       <string>yourPassWord</string>
@@ -124,10 +128,14 @@ border-radius: 10px;</string>
      <property name="styleSheet">
       <string notr="true">background: #FFFFFF;
 border: 1px solid #BCBEC0;
-border-radius: 10px;</string>
+border-radius: 10px;
+color:black;</string>
      </property>
      <property name="text">
-      <string>michel</string>
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>255</number>
      </property>
      <property name="placeholderText">
       <string>Potter78</string>
@@ -228,8 +236,8 @@ border-radius: 10px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/loginpage/google.svg</normaloff>../rcs/images/loginpage/google.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/login/images/loginpage/google.svg</normaloff>:/login/images/loginpage/google.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="gitButton">
@@ -250,8 +258,8 @@ border-radius: 10px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/loginpage/git.svg</normaloff>../rcs/images/loginpage/git.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/login/images/loginpage/git.svg</normaloff>:/login/images/loginpage/git.svg</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="facebookButton">
@@ -272,8 +280,8 @@ border-radius: 10px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../rcs/images/loginpage/fb.svg</normaloff>../rcs/images/loginpage/fb.svg</iconset>
+      <iconset resource="../rcs/qtrcs.qrc">
+       <normaloff>:/login/images/loginpage/fb.svg</normaloff>:/login/images/loginpage/fb.svg</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -290,12 +298,14 @@ border-radius: 10px;</string>
      <x>0</x>
      <y>0</y>
      <width>1920</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="../rcs/qtrcs.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -58,3 +58,6 @@ DISTFILES += \
     rsc/images/log/fb.svg \
     rsc/images/log/git.svg \
     rsc/images/log/google.svg
+
+RESOURCES += \
+    rcs/qtrcs.qrc

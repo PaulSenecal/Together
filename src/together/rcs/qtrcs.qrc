@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/"/>
+    <qresource prefix="/ChatPage">
+        <file>images/chatpage/addFile.svg</file>
+        <file>images/chatpage/addFriend.svg</file>
+        <file>images/chatpage/bell.svg</file>
+        <file>images/chatpage/camera.svg</file>
+        <file>images/chatpage/chatBull.svg</file>
+        <file>images/chatpage/completChatBule.svg</file>
+        <file>images/chatpage/logoTogether.svg</file>
+        <file>images/chatpage/my.svg</file>
+        <file>images/chatpage/phone.svg</file>
+        <file>images/chatpage/send.svg</file>
+        <file>images/chatpage/settingDote.svg</file>
+        <file>images/chatpage/settingWile.svg</file>
+        <file>images/chatpage/smile.svg</file>
+        <file>images/chatpage/verticalSeparator.svg</file>
+        <file>images/chatpage/vocalMessage.svg</file>
+    </qresource>
+    <qresource prefix="/login">
+        <file>images/loginpage/back.jpg</file>
+        <file>images/loginpage/back.png</file>
+        <file>images/loginpage/back.svg</file>
+        <file>images/loginpage/fb.svg</file>
+        <file>images/loginpage/git.svg</file>
+        <file>images/loginpage/google.svg</file>
+    </qresource>
+    <qresource prefix="/Song">
+        <file>song/hover.WAV</file>
+        <file>song/start.WAV</file>
+    </qresource>
+</RCC>

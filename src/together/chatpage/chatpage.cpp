@@ -14,53 +14,26 @@ ChatPage::ChatPage(QWidget *parent) :
 
     start =new QSoundEffect( this );
     std::cout<<"son"<<getSoundh();
-    start->setSource ( QUrl :: fromLocalFile ( PATH + "song/start.wav" ));
+    start->setSource ( QUrl("qrc:/Song/song/start.WAV"));
     start->setVolume ( getSounds() );
 
 
 
     QObject::connect ( ui->sendMessageQpushButton,SIGNAL(clicked()), start , SLOT(play()));
 
-    ui->addFileQpushButton->setIcon(QIcon(PATH + "chatpage/addFile.svg"));
     ui->addFileQpushButton->setToolTip("Ajouter un fichier");
-
-    ui->smileQpushButton->setIcon(QIcon(PATH + "chatpage/smile.svg"));
     ui->smileQpushButton->setToolTip("Ajouter un smiley");
-
-    ui->sendMessageQpushButton->setIcon(QIcon(PATH + "chatpage/send.svg"));
     ui->sendMessageQpushButton->setToolTip("Envoyer un message");
-
-    ui->verticalSeparatorQpushButton->setIcon(QIcon(PATH + "chatpage/verticalSeparator.svg"));
-
-    ui->vocalMessageQpushButton->setIcon(QIcon(PATH + "chatpage/vocalMessage.svg"));
     ui->vocalMessageQpushButton->setToolTip("Message vocal");
-
-    ui->callQPushButton->setIcon(QIcon(PATH + "chatpage/phone.svg"));
     ui->callQPushButton->setToolTip("Lancer un Appel");
-
-
-    ui->videoQPushButton->setIcon(QIcon(PATH + "chatpage/camera.svg"));
     ui->videoQPushButton->setToolTip("Lancer un appel video");
-
-    ui->settingDoteQPushButton->setIcon(QIcon(PATH + "chatpage/settingDote.svg"));
     ui->verticalSeparatorQpushButton->setToolTip("Gerez vos parametre");
-
-    ui->personQpushButton->setIcon(QIcon(PATH + "chatpage/my.svg"));
     ui->personQpushButton->setToolTip("Gere votre profil");
-
-    ui->settingQPushButton->setIcon(QIcon(PATH + "chatpage/settingWile.svg"));
     ui->verticalSeparatorQpushButton->setToolTip("Gerez vos parametre");
-
-    ui->addFriendQPushButton->setIcon(QIcon(PATH + "chatpage/addFriend.svg"));
     ui->addFriendQPushButton->setToolTip("Invité un ami");
-
-    ui->chatQPushButton->setIcon(QIcon(PATH + "chatpage/chatBull.svg"));
     ui->chatQPushButton->setToolTip("chat");
-
-    ui->bellQpushButton->setIcon(QIcon(PATH + "chatpage/bell.svg"));
+    //ui->bellQpushButton->setIcon(QIcon(PATH + "chatpage/bell.svg"));
     ui->bellQpushButton->setToolTip("Activé/desactivé notification");
-
-
     ui->addFileQpushButton->setToolTip("Ajouter un ami");
 
 
@@ -73,35 +46,37 @@ ChatPage::~ChatPage()
     delete ui;
 }
 void ChatPage::setNom(QString nom){
-    nom = "Bienvenu : "+nom;
-    this->setWindowTitle("session de : "+nom);
+     this->setWindowTitle(nom);
 }
 
 void ChatPage::on_sendMessageQpushButton_clicked()
 {
     qDebug("send message");
-    QByteArray text = (ui->sendMessageTextEdit->toPlainText()).toUtf8();
+    QByteArray text = (windowTitle()+": "+ui->sendMessageTextEdit->toPlainText()).toUtf8();
     qDebug()<<text.size()<<"size";
     if(text.size()>0)
     {
         client.send(text);
         ui->sendMessageTextEdit->clear();
         ui->chatQtextEdit->setTextColor("yellow");
-        ui->chatQtextEdit->append("me : " + text);
+        ui->chatQtextEdit->append(text);
     }
 }
+
+
 
 
 void ChatPage::on_pushButton_clicked()//temporis
 {
     qDebug("fermeture");
     client.Closed();
+    this->close();
 }
 void ChatPage::afficherMessage(QByteArray data)
 {
     qDebug()<<"display message";
     ui->chatQtextEdit->setTextColor("red");
-    ui->chatQtextEdit->append("server: " + data);
+    ui->chatQtextEdit->append(data);
 }
 
 
@@ -134,3 +109,60 @@ void ChatPage::setSounds(int sound)
 {
     this->sounds = sound;
 }
+
+void ChatPage::on_addFriendQPushButton_clicked()
+{
+    bool ok;
+    QString friendName = QInputDialog::getText(this, tr("Ajouter un ami"),
+                                               tr("Nom d'utilisateur:"), QLineEdit::Normal,
+                                               "", &ok);
+    if (ok && !friendName.isEmpty()) {
+
+        if (checkFriendInDB(friendName)) {
+            afficherAmi(friendName);
+        } else {
+            QMessageBox::warning(this, "Erreur", "Cet utilisateur n'existe pas dans la base de données.");
+        }
+    }
+}
+bool ChatPage::checkFriendInDB(const QString &friendName)
+{
+    if (!QSqlDatabase::database().isOpen()) {
+        if (!connectToDatabase()) {
+            QMessageBox::critical(this, "Erreur", "Impossible de se connecter à la base de données.");
+            return false;
+        }
+    }
+
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM admin WHERE login = :login");
+    query.bindValue(":login", friendName);
+
+    if (!query.exec()) {
+        qDebug() << "Erreur lors de la vérification de l'ami: " << query.lastError().text();
+        return false;
+    }
+
+    if (query.next() && query.value(0).toInt() > 0) {
+        return true;
+    }
+    return false;
+}
+
+void ChatPage::afficherAmi(const QString &friendName)
+{
+    ui->friendsListWidget->addItem(friendName);
+}
+
+
+bool ChatPage::connectToDatabase()
+{
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("C:/Programmation/C++/Together/src/db/mydatabase.db");
+    if (!db.open()) {
+        qDebug() << "Erreur lors de la connexion à la base de données: " << db.lastError().text();
+        return false;
+    }
+    return true;
+}
+//devra heriter de la fonction de connection a la db ou passer la verif au server , de meme pour la verif de connection

@@ -13,7 +13,7 @@ public:
     explicit ClientSocket(QObject *parent = 0);
     void Connect();
     void Closed();
-    void send(QByteArray);
+    void send(const QString &text);
     void disconnectFromHost();
 
 signals:
@@ -24,6 +24,7 @@ public slots:
 
 private:
     QTcpSocket *socket;
+    quint16 tailleMessage = 0;
 
 };
 #endif // CLIENTSOCKET_H

@@ -5,7 +5,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    ChatPage w;
-    w.show();
+    LoginPage w;
+    //ChatPage w;
+    w.showFullScreen();
     return a.exec();
 }
